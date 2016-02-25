@@ -53,7 +53,7 @@ begin
    Withdraw(Amount => 150.00, Account => My_Account);
    Display_Balance(My_Account);
    Display_Creditor(Is_Account_Creditor(My_Account));
-   Deposit(Amount => 75.00, Account => My_Account);
+   Deposit(Amount => 20.00, Account => My_Account);
    Display_Balance(My_Account);
    Display_Creditor(Is_Account_Creditor(My_Account));
 
