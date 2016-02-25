@@ -27,22 +27,22 @@ procedure Bank_Account is
       Put_Line("The balance of the account number " &Positive'Image(Account.ID) & " is :" & T_Euro'Image(Account.Balance));
    end Display_Balance;
 
-
+   -------------------------------------------------------------------------------------------------
    function Is_Account_Creditor (Account : T_Account) return Boolean is
-      Creditor : Boolean;
    begin
-      if Account.Balance > 0.00
-      then Creditor := True;
-      else
-         Creditor := False;
-      end if;
-      return Creditor;
+      return Account.Balance >= 0.0;
    end Is_Account_Creditor;
+
+   -------------------------------------------------------------------------------------------------
+   procedure Display_Creditor (Creditor : Boolean) is
+   begin
+      Put_Line("Is the account creditor : " &Boolean'Image(Creditor));
+   end Display_Creditor;
 
    -------------------------------------------------------------------------------------------------
    My_Account : T_Account := T_Account'(Balance => 0.00,
                                         ID      => 1);
-   Creditor : Boolean;
+
 
 
 begin
@@ -52,11 +52,10 @@ begin
    Display_Balance(My_Account);
    Withdraw(Amount => 150.00, Account => My_Account);
    Display_Balance(My_Account);
-   Creditor := Is_Account_Creditor(My_Account);
-   if Creditor
-   then Put_Line("The account is creditor");
-   else Put_Line("The account is debitor");
-   end if;
+   Display_Creditor(Is_Account_Creditor(My_Account));
+   Deposit(Amount => 75.00, Account => My_Account);
+   Display_Balance(My_Account);
+   Display_Creditor(Is_Account_Creditor(My_Account));
 
 
 end Bank_Account;
