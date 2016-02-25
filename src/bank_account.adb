@@ -48,7 +48,7 @@ procedure Bank_Account is
 begin
 
    Display_Balance(My_Account);
-   Deposit(Amount => 100.00, Account => My_Account);
+   Deposit(Amount => 130.00, Account => My_Account);
    Display_Balance(My_Account);
    Withdraw(Amount => 150.00, Account => My_Account);
    Display_Balance(My_Account);
