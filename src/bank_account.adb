@@ -51,7 +51,7 @@ begin
    Deposit(Amount => 130.00, Account => My_Account);
    Display_Balance(My_Account);
 
-   Withdraw(Amount => 5000.00, Account => My_Account);
+   Withdraw(Amount => 500.00, Account => My_Account);
 
 
 
