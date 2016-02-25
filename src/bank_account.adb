@@ -68,24 +68,25 @@ procedure Bank_Account is
       Payee.History(Payee.Date) := (Operation => Transfer, Amount => Amount, Transmitter => Transmitter.ID, Payee => Payee.ID);
    end Transfer;
 
+
    -------------------------------------------------------------------------------------------------
    procedure Display_History (Account : T_Account) is
    begin
       Put_Line("------------------------ History of account number " &Positive'Image(Account.ID) & " --------------------");
       for i in Account.History'range loop
-         if Account.History(i).Operation = Transfer
-         then
+         case Account.History(i).Operation is
+            when Transfer =>
+
             Put("Operation : " &T_Operation'Image(Account.History(i).Operation));
             Put(" of " &T_Euro'Image(Account.History(i).Amount) & " Euros");
             Put(" from account number " &Positive'Image(Account.History(i).Transmitter));
             Put_Line(" to account number " &Positive'Image(Account.History(i).Payee));
-         elsif Account.History(i).Operation = NA
-         then
+            when NA =>
             null;
-         else
+            when others =>
             Put("Operation : " &T_Operation'Image(Account.History(i).Operation));
             Put_Line(" of " &T_Euro'Image(Account.History(i).Amount) & " Euros");
-         end if;
+         end case;
       end loop;
    end Display_History;
 
@@ -103,11 +104,11 @@ begin
 
    Deposit(Amount => 130.00, Account => Account_1);
    Display_Balance(Account_1);
-   Display_Creditor(Is_Account_Creditor(Account_1));
+
 
    Deposit(Amount => 100.00, Account => Account_2);
    Display_Balance(Account_2);
-   Display_Creditor(Is_Account_Creditor(Account_2));
+
    Transfer(Amount => 20.0, Transmitter => Account_1, Payee => Account_2);
 
 
@@ -115,11 +116,16 @@ begin
    Transfer(Amount => 10.0, Transmitter => Account_1, Payee => Account_2);
    Transfer(Amount => 5.0, Transmitter => Account_2, Payee => Account_1);
 
+
+
+
+   Display_History(Account_1);
+   Display_Creditor(Is_Account_Creditor(Account_1));
    Display_Balance(Account_1);
-   Display_Balance(Account_2);
 
    Display_History(Account_2);
-   Display_History(Account_1);
+   Display_Balance(Account_2);
+   Display_Creditor(Is_Account_Creditor(Account_2));
 
 end Bank_Account;
 
