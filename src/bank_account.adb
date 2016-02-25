@@ -40,23 +40,31 @@ procedure Bank_Account is
    end Display_Creditor;
 
    -------------------------------------------------------------------------------------------------
-   My_Account : T_Account := T_Account'(Balance => 0.00,
+   procedure Transfer (Amount : T_Euro := 0.00; Transmitter : in out T_Account; Payee : in out T_Account) is
+   begin
+      Withdraw(Amount => Amount, Account => Transmitter);
+      Deposit(Amount => Amount, Account => Payee);
+   end Transfer;
+
+   -------------------------------------------------------------------------------------------------
+   Account_1 : T_Account := T_Account'(Balance => 0.00,
                                         ID      => 1);
 
-
+   Account_2 : T_Account := T_Account'(Balance => 0.00,
+                                        ID      => 2);
 
 begin
 
-   Display_Balance(My_Account);
-   Deposit(Amount => 130.00, Account => My_Account);
-   Display_Balance(My_Account);
-   Withdraw(Amount => 250.00, Account => My_Account);
-   Display_Balance(My_Account);
-   Display_Creditor(Is_Account_Creditor(My_Account));
-   Deposit(Amount => 20.00, Account => My_Account);
-   Display_Balance(My_Account);
-   Display_Creditor(Is_Account_Creditor(My_Account));
+   Deposit(Amount => 130.00, Account => Account_1);
+   Display_Balance(Account_1);
+   Display_Creditor(Is_Account_Creditor(Account_1));
 
+   Deposit(Amount => 100.00, Account => Account_2);
+   Display_Balance(Account_2);
+   Display_Creditor(Is_Account_Creditor(Account_2));
+   Transfer(Amount => 20.0, Transmitter => Account_1, Payee => Account_2);
 
+   Display_Balance(Account_1);
+   Display_Balance(Account_2);
 end Bank_Account;
 
