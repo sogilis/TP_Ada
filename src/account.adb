@@ -15,6 +15,7 @@ package body Account is
    procedure Withdraw (Amount : T_Euro := 0.00; Account : in out T_Account) is
    begin
       Account.Date                   := Account.Date + 1;
+      Account.Balance                := Account.Balance - Amount;
       Account.History (Account.Date) :=
         (Operation   => Withdraw,
          Amount      => Amount,

@@ -18,8 +18,15 @@ package body Account.Test_Data.Tests is
 
    procedure Test_Withdraw (Gnattest_T : in out Test) is
       pragma Unreferenced (Gnattest_T);
+       Test_Account : T_Account :=
+        (Balance => 40.0, ID => 1, History => <>, Date => 0);
    begin
-      null;
+      Assert(Test_Account.Balance=40.0, "Balance initialization wrong");
+
+      Account.Withdraw (Amount => 30.0, Account => Test_Account);
+
+      Assert(Test_Account.Balance=10.0, "After withdraw balance wrong");
+
 
    end Test_Withdraw;
 
