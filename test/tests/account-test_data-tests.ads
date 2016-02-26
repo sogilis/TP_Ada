@@ -9,14 +9,8 @@ package Account.Test_Data.Tests is
 
    procedure Test_Withdraw (Gnattest_T : in out Test);
 
-   procedure Test_Display_Balance (Gnattest_T : in out Test);
-
    procedure Test_Is_Account_Creditor (Gnattest_T : in out Test);
 
-   procedure Test_Display_Creditor (Gnattest_T : in out Test);
-
    procedure Test_Transfer (Gnattest_T : in out Test);
-
-   procedure Test_Display_History (Gnattest_T : in out Test);
 
 end Account.Test_Data.Tests;
