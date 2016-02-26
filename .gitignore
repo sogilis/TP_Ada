@@ -1,2 +1,15 @@
-exe/
+*.ali
+*.o
+*.npp
+*.adc
 obj/
+exe/
+test/harness/gnattest.xml
+test/harness/gpsauto.cgpr
+test/harness/test_driver-loc.xml
+test/harness/auto.cgpr
+test/harness/b__test_runner.adb
+test/harness/b__test_runner.ads
+test/harness/gnatinspect.db
+test/harness/test_runner
+test/harness/test_runner.bexch

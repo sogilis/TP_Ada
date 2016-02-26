@@ -1,4 +1,3 @@
-
 package Account is
 
    type T_Euro is delta 0.01 range -100_000.00 .. 100_000.00;

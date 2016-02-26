@@ -1,7 +1,3 @@
---  This package has been generated automatically by GNATtest.
---  Do not edit any part of it, see GNATtest documentation for more details.
-
---  begin read only
 with Account.Test_Data.Tests.Suite;
 
 package body Gnattest_Main_Suite is
@@ -18,4 +14,3 @@ package body Gnattest_Main_Suite is
    end Suite;
 
 end Gnattest_Main_Suite;
---  end read only

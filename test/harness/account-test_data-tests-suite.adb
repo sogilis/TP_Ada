@@ -1,7 +1,3 @@
---  This package has been generated automatically by GNATtest.
---  Do not edit any part of it, see GNATtest documentation for more details.
-
---  begin read only
 with AUnit.Test_Caller;
 with Gnattest_Generated;
 
@@ -26,31 +22,31 @@ package body Account.Test_Data.Tests.Suite is
       Runner_1.Create
         (Case_1_1_Test_Deposit_6e243f,
          "account.ads:25:4:",
-         Test_Deposit_6e243f'Access);
+         Test_Deposit'Access);
       Runner_1.Create
         (Case_2_1_Test_Withdraw_5f5135,
          "account.ads:28:4:",
-         Test_Withdraw_5f5135'Access);
+         Test_Withdraw'Access);
       Runner_1.Create
         (Case_3_1_Test_Display_Balance_fd34d5,
          "account.ads:31:4:",
-         Test_Display_Balance_fd34d5'Access);
+         Test_Display_Balance'Access);
       Runner_1.Create
         (Case_4_1_Test_Is_Account_Creditor_6a67f2,
          "account.ads:34:4:",
-         Test_Is_Account_Creditor_6a67f2'Access);
+         Test_Is_Account_Creditor'Access);
       Runner_1.Create
         (Case_5_1_Test_Display_Creditor_f642eb,
          "account.ads:37:4:",
-         Test_Display_Creditor_f642eb'Access);
+         Test_Display_Creditor'Access);
       Runner_1.Create
         (Case_6_1_Test_Transfer_2d6797,
          "account.ads:40:4:",
-         Test_Transfer_2d6797'Access);
+         Test_Transfer'Access);
       Runner_1.Create
         (Case_7_1_Test_Display_History_9a6cd3,
          "account.ads:46:4:",
-         Test_Display_History_9a6cd3'Access);
+         Test_Display_History'Access);
 
       Result.Add_Test (Case_1_1_Test_Deposit_6e243f'Access);
       Result.Add_Test (Case_2_1_Test_Withdraw_5f5135'Access);
@@ -65,4 +61,3 @@ package body Account.Test_Data.Tests.Suite is
    end Suite;
 
 end Account.Test_Data.Tests.Suite;
---  end read only

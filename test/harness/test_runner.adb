@@ -1,7 +1,3 @@
---  This package has been generated automatically by GNATtest.
---  Do not edit any part of it, see GNATtest documentation for more details.
-
---  begin read only
 with AUnit.Reporter.GNATtest;
 with AUnit.Run;
 with AUnit.Options; use AUnit.Options;
@@ -67,4 +63,3 @@ begin
       Ada.Command_Line.Set_Exit_Status (Ada.Command_Line.Success);
    end if;
 end Test_Runner;
---  end read only

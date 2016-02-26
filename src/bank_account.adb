@@ -1,8 +1,8 @@
-with Account;     use Account;
+with Account; use Account;
 
 procedure Bank_Account is
 
-    Account_1 : T_Account :=
+   Account_1 : T_Account :=
      T_Account'(Balance => 0.00, ID => 1, History => <>, Date => 0);
 
    Account_2 : T_Account :=
