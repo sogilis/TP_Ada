@@ -1,7 +1,6 @@
 *.ali
 *.o
 *.npp
-*.adc
 obj/
 exe/
 test/harness/gnattest.xml
