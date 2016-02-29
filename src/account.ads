@@ -1,8 +1,7 @@
+with P_Operation; use P_Operation;
+
 package Account is
 
-   type T_Euro is delta 0.01 range -100_000.00 .. 100_000.00;
-
-   type T_Operation is (Deposit, Withdraw, Transfer, NA);
 
    type T_History is record
       Operation   : T_Operation := NA;
@@ -20,29 +19,8 @@ package Account is
       Date    : Integer;
    end record;
 
-   -------------------------------------------------------------------------------------------------
-   procedure Deposit (Amount : T_Euro := 0.00; Account : in out T_Account);
 
-   -------------------------------------------------------------------------------------------------
-   procedure Withdraw (Amount : T_Euro := 0.00; Account : in out T_Account);
 
-   -------------------------------------------------------------------------------------------------
-   procedure Display_Balance (Account : T_Account);
-
-   -------------------------------------------------------------------------------------------------
-   function Is_Account_Creditor (Account : T_Account) return Boolean;
-
-   -------------------------------------------------------------------------------------------------
-   procedure Display_Creditor (Creditor : Boolean);
-
-   -------------------------------------------------------------------------------------------------
-   procedure Transfer
-     (Amount      :        T_Euro := 0.00;
-      Transmitter : in out T_Account;
-      Payee       : in out T_Account);
-
-   -------------------------------------------------------------------------------------------------
-   procedure Display_History (Account : T_Account);
 
 
 end Account;
