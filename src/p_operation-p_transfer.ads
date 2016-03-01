@@ -3,10 +3,12 @@ with Account; use Account;
 
 package P_Operation.P_Transfer is
 
+   type T_Transfer is new T_Operation with record
+      Transmitter : T_Account;
+      Payee :T_Account;
+   end record;
 
    procedure Make_Transfer
-     (Amount      :        T_Euro := 0.00;
-      Transmitter : in out T_Account;
-      Payee       : in out T_Account);
+     (Transfer : in out T_Transfer);
 
 end P_Operation.P_Transfer;

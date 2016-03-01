@@ -15,17 +15,17 @@ procedure Bank_Account is
 
    Account_3 : T_Account :=
      T_Account'(Balance => 0.00, ID => 3, History => <>, Date => 0);
-
+   W : T_Withdraw := T_Withdraw'(Amount => 50.00, Account => Account_1);
 begin
 
-   Make_Deposit (Amount => 130.00, Account => Account_1);
-   Make_Deposit (Amount => 100.00, Account => Account_2);
-   Make_Deposit (Amount => 70.00, Account => Account_3);
-   Make_Transfer (Amount => 20.0, Transmitter => Account_1, Payee => Account_2);
-   Make_Transfer (Amount => 30.0, Transmitter => Account_3, Payee => Account_1);
-   Make_Transfer (Amount => 10.0, Transmitter => Account_1, Payee => Account_3);
-   Make_Transfer (Amount => 100.0, Transmitter => Account_3, Payee => Account_2);
-   Make_Withdraw (Amount => 50.00, Account => Account_2);
+   Make_Withdraw(W);
+   --Make_Deposit (Amount => 100.00, Account => Account_2);
+   --Make_Deposit (Amount => 10.00, Account => Account_3);
+   --Make_Transfer (Amount => 20.0, Transmitter => Account_1, Payee => Account_2);
+   --Make_Transfer (Amount => 30.0, Transmitter => Account_3, Payee => Account_1);
+   -- Make_Transfer (Amount => 10.0, Transmitter => Account_1, Payee => Account_3);
+  -- Make_Transfer (Amount => 100.0, Transmitter => Account_3, Payee => Account_2);
+   -- Make_Withdraw (Amount => 40.00, Account => Account_2);
 
    Display_History (Account_1);
    Display_Creditor (Is_Account_Creditor (Account_1));

@@ -1,12 +1,12 @@
 package body P_Operation.P_Withdraw is
 
-   procedure Make_Withdraw (Amount : T_Euro := 0.00; Account : in out T_Account) is
+   procedure Make_Withdraw (Withdraw : in out T_Withdraw) is
    begin
-      Account.Date                   := Account.Date + 1;
-      Account.Balance                := Account.Balance - Amount;
-      Account.History (Account.Date) :=
-        (
-         Amount      => Amount,
+      Withdraw.Account.Date                   := Withdraw.Account.Date + 1;
+      Withdraw.Account.Balance                := Withdraw.Account.Balance - Withdraw.Amount;
+      Withdraw.Account.History (Withdraw.Account.Date) :=
+        (Operation => "wit",
+         Amount      => Withdraw.Amount,
          Transmitter => 0,
          Payee       => 0);
    end Make_Withdraw;

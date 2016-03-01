@@ -3,6 +3,7 @@ with P_Operation; use P_Operation;
 package Account is
 
    type T_History is record
+      Operation   : String(1..3);
       Amount      : T_Euro      := 0.00;
       Transmitter : Natural     := 0;
       Payee       : Natural     := 0;

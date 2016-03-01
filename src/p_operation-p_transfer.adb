@@ -1,25 +1,23 @@
 package body P_Operation.P_Transfer is
 
  procedure Make_Transfer
-     (Amount      :        T_Euro := 0.00;
-      Transmitter : in out T_Account;
-      Payee       : in out T_Account)
+     (Transfer : in out T_Transfer)
    is
    begin
-      Transmitter.Date                       := Transmitter.Date + 1;
-      Payee.Date                             := Payee.Date + 1;
-      Transmitter.Balance                    := Transmitter.Balance - Amount;
-      Payee.Balance                          := Payee.Balance + Amount;
-      Transmitter.History (Transmitter.Date) :=
-        (
-         Amount      => Amount,
-         Transmitter => Transmitter.ID,
-         Payee       => Payee.ID);
-      Payee.History (Payee.Date) :=
-        (
-         Amount      => Amount,
-         Transmitter => Transmitter.ID,
-         Payee       => Payee.ID);
+      Transfer.Transmitter.Date                       := Transfer.Transmitter.Date + 1;
+      Transfer.Payee.Date                             := Transfer.Payee.Date + 1;
+      Transfer.Transmitter.Balance                    := Transfer.Transmitter.Balance - Transfer.Amount;
+      Transfer.Payee.Balance                          := Transfer.Payee.Balance + Transfer.Amount;
+      Transfer.Transmitter.History (Transfer.Transmitter.Date) :=
+        (Operation => "tra",
+         Amount      => Transfer.Amount,
+         Transmitter => Transfer.Transmitter.ID,
+         Payee       => Transfer.Payee.ID);
+      Transfer.Payee.History (Transfer.Payee.Date) :=
+        (Operation => "tra",
+         Amount      => Transfer.Amount,
+         Transmitter => Transfer.Transmitter.ID,
+         Payee       => Transfer.Payee.ID);
    end Make_Transfer;
 
 end P_Operation.P_Transfer;

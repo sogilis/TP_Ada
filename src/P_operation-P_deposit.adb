@@ -1,11 +1,11 @@
 package body P_Operation.P_Deposit is
 
-   procedure Make_Deposit (Amount : T_Euro :=0.00 ; Account : in out T_Account) is
+   procedure Make_Deposit (Deposit : in out T_Deposit) is
    begin
-      Account.Date                   := Account.Date + 1;
-      Account.Balance                := Account.Balance + Amount;
-      Account.History (Account.Date) :=
-        (Amount => Amount, Transmitter => 0, Payee => 0);
+      Deposit.Account.Date                   := Deposit.Account.Date + 1;
+      Deposit.Account.Balance                := Deposit.Account.Balance + Deposit.Amount;
+      Deposit.Account.History (Deposit.Account.Date) :=
+        (Operation => "dep", Amount => Deposit.Amount, Transmitter => 0, Payee => 0);
    end Make_Deposit;
 
 end P_Operation.P_Deposit;

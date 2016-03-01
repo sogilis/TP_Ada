@@ -3,7 +3,10 @@ with Account; use Account;
 
 package P_Operation.P_Withdraw is
 
+   type T_Withdraw is new T_Operation with record
+      Account : T_Account;
+   end record;
 
-   procedure Make_Withdraw (Amount : T_Euro := 0.00; Account : in out T_Account);
+   procedure Make_Withdraw (Withdraw : in out T_Withdraw);
 
 end P_Operation.P_Withdraw;
