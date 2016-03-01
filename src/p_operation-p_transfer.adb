@@ -1,23 +1,32 @@
 package body P_Operation.P_Transfer is
 
- procedure Make_Transfer
-     (Transfer : in out T_Transfer)
-   is
+   procedure Make_Transfer (Transfer : in out T_Transfer) is
    begin
-      Transfer.Transmitter.Date                       := Transfer.Transmitter.Date + 1;
-      Transfer.Payee.Date                             := Transfer.Payee.Date + 1;
-      Transfer.Transmitter.Balance                    := Transfer.Transmitter.Balance - Transfer.Amount;
-      Transfer.Payee.Balance                          := Transfer.Payee.Balance + Transfer.Amount;
-      Transfer.Transmitter.History (Transfer.Transmitter.Date) :=
-        (Operation => "tra",
+
+      Transfer.Ptr_Transmitter.all.Date :=
+        Transfer.Ptr_Transmitter.all.Date + 1;
+
+      Transfer.Ptr_Payee.all.Date          := Transfer.Ptr_Payee.all.Date + 1;
+
+      Transfer.Ptr_Transmitter.all.Balance :=
+        Transfer.Ptr_Transmitter.all.Balance - Transfer.Amount;
+
+      Transfer.Ptr_Payee.all.Balance :=
+        Transfer.Ptr_Payee.all.Balance + Transfer.Amount;
+
+      Transfer.Ptr_Transmitter.all.History
+        (Transfer.Ptr_Transmitter.all.Date) :=
+        (Operation   => 3,
          Amount      => Transfer.Amount,
-         Transmitter => Transfer.Transmitter.ID,
-         Payee       => Transfer.Payee.ID);
-      Transfer.Payee.History (Transfer.Payee.Date) :=
-        (Operation => "tra",
+         Transmitter => Transfer.Ptr_Transmitter.all.ID,
+         Payee       => Transfer.Ptr_Payee.all.ID);
+
+      Transfer.Ptr_Payee.all.History (Transfer.Ptr_Payee.all.Date) :=
+        (Operation   => 3,
          Amount      => Transfer.Amount,
-         Transmitter => Transfer.Transmitter.ID,
-         Payee       => Transfer.Payee.ID);
+         Transmitter => Transfer.Ptr_Transmitter.all.ID,
+         Payee       => Transfer.Ptr_Payee.all.ID);
+
    end Make_Transfer;
 
 end P_Operation.P_Transfer;
