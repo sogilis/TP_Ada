@@ -5,7 +5,7 @@ package body P_Operation.P_Deposit is
       Account.Date                   := Account.Date + 1;
       Account.Balance                := Account.Balance + Amount;
       Account.History (Account.Date) :=
-        (Operation => Deposit, Amount => Amount, Transmitter => 0, Payee => 0);
+        (Amount => Amount, Transmitter => 0, Payee => 0);
    end Make_Deposit;
 
 end P_Operation.P_Deposit;

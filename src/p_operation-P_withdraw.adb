@@ -5,7 +5,7 @@ package body P_Operation.P_Withdraw is
       Account.Date                   := Account.Date + 1;
       Account.Balance                := Account.Balance - Amount;
       Account.History (Account.Date) :=
-        (Operation   => Withdraw,
+        (
          Amount      => Amount,
          Transmitter => 0,
          Payee       => 0);

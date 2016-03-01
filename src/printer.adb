@@ -34,35 +34,35 @@ package body Printer is
         ("------------------------ History of account number " &
          Positive'Image (Account.ID) &
          " --------------------");
-      for i in Account.History'Range loop
-         case Account.History (i).Operation is
-            when Transfer =>
+     -- for i in Account.History'Range loop
+       --  case Account.History (i).Operation is
+         --   when Transfer =>
 
-               Put
-                 ("Operation : " &
-                  T_Operation'Image (Account.History (i).Operation));
-               Put
-                 (" of " &
-                  T_Euro'Image (Account.History (i).Amount) &
-                  " Euros");
-               Put
-                 (" from account number " &
-                  Positive'Image (Account.History (i).Transmitter));
-               Put_Line
-                 (" to account number " &
-                  Positive'Image (Account.History (i).Payee));
-            when NA =>
-               null;
-            when others =>
-               Put
-                 ("Operation : " &
-                  T_Operation'Image (Account.History (i).Operation));
-               Put_Line
-                 (" of " &
-                  T_Euro'Image (Account.History (i).Amount) &
-                  " Euros");
-         end case;
-      end loop;
+           --    Put
+             --    ("Operation : " &
+               --   T_Operation'Image (Account.History (i).Operation));
+             --  Put
+               --  (" of " &
+                 -- T_Euro'Image (Account.History (i).Amount) &
+                  --" Euros");
+--               Put
+  --               (" from account number " &
+    --              Positive'Image (Account.History (i).Transmitter));
+      --         Put_Line
+        --         (" to account number " &
+          --        Positive'Image (Account.History (i).Payee));
+            --when NA =>
+              -- null;
+       --     when others =>
+         --      Put
+           --      ("Operation : " &
+             --     T_Operation'Image (Account.History (i).Operation));
+               --Put_Line
+                 --(" of " &
+                  --T_Euro'Image (Account.History (i).Amount) &
+                  --" Euros");
+         --end case;
+      --end loop;
    end Display_History;
 
 end Printer;

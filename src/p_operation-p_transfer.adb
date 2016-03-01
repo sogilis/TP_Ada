@@ -11,12 +11,12 @@ package body P_Operation.P_Transfer is
       Transmitter.Balance                    := Transmitter.Balance - Amount;
       Payee.Balance                          := Payee.Balance + Amount;
       Transmitter.History (Transmitter.Date) :=
-        (Operation   => Transfer,
+        (
          Amount      => Amount,
          Transmitter => Transmitter.ID,
          Payee       => Payee.ID);
       Payee.History (Payee.Date) :=
-        (Operation   => Transfer,
+        (
          Amount      => Amount,
          Transmitter => Transmitter.ID,
          Payee       => Payee.ID);
