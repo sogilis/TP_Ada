@@ -11,4 +11,7 @@ package P_Operation.P_Transfer is
    -------------------------------------------------------------------------------------------------
    procedure Make_Transfer (Transfer : in out T_Transfer);
 
+
+   procedure Display_Transfer(Amount : T_Euro; Transmitter_ID : Positive; Payee_ID : Positive);
+
 end P_Operation.P_Transfer;

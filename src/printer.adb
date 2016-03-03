@@ -1,6 +1,9 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with Account;     use Account;
 with P_Operation; use P_Operation;
+with P_Operation.P_Deposit;  use P_Operation.P_Deposit;
+with P_Operation.P_Withdraw; use P_Operation.P_Withdraw;
+with P_Operation.P_Transfer; use P_Operation.P_Transfer;
 
 package body Printer is
 
@@ -30,34 +33,26 @@ package body Printer is
 
    -------------------------------------------------------------------------------------------------
    procedure Display_History (Ptr_Account : T_Pointeur) is
+      D : T_Deposit;
+      W : T_Withdraw;
    begin
-      New_Line; Put_Line
+      New_Line;
+      Put_Line
         ("------------------------ History of account number " &
          Positive'Image (Ptr_Account.all.ID) &
          " --------------------");
       for i in Ptr_Account.all.History'Range loop
          case Ptr_Account.all.History (i).Operation is
             when 1 =>
-               Put_Line
-                 ("Deposit of " &
-                  T_Euro'Image (Ptr_Account.all.History (i).Amount) &
-                  " Euros");
+               D := (Amount=> Ptr_Account.all.History (i).Amount, Ptr_Account => Ptr_Account);
+               Display_Operation(D);
+
             when 2 =>
-               Put_Line
-                 ("Withdraw of " &
-                  T_Euro'Image (Ptr_Account.all.History (i).Amount) &
-                  " Euros");
+               W := (Amount=> Ptr_Account.all.History (i).Amount, Ptr_Account => Ptr_Account);
+               Display_Operation(W);
             when 3 =>
-               Put
-                 ("Transfer of " &
-                  T_Euro'Image (Ptr_Account.all.History (i).Amount) &
-                  " Euros");
-               Put
-                 (" from account number " &
-                  Positive'Image (Ptr_Account.all.History (i).Transmitter));
-               Put_Line
-                 (" to account number " &
-                  Positive'Image (Ptr_Account.all.History (i).Payee));
+
+               Display_Transfer(Amount=> Ptr_Account.all.History (i).Amount, Transmitter_ID => Ptr_Account.all.History (i).Transmitter , Payee_ID => Ptr_Account.all.History (i).Payee);
             when others =>
                null;
          end case;

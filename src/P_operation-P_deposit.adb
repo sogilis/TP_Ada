@@ -1,3 +1,5 @@
+with Ada.Text_IO; use Ada.Text_IO;
+
 package body P_Operation.P_Deposit is
 
    procedure Make_Deposit (Deposit : in out T_Deposit) is
@@ -15,5 +17,11 @@ package body P_Operation.P_Deposit is
          Payee       => 0);
 
    end Make_Deposit;
+
+   procedure Display_Operation(Deposit: T_Deposit) is
+   begin
+      Put_Line("Deposit of " &T_Euro'Image (Deposit.Amount) & " Euros");
+   end Display_Operation;
+
 
 end P_Operation.P_Deposit;

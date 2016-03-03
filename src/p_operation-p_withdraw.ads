@@ -10,4 +10,7 @@ package P_Operation.P_Withdraw is
    -------------------------------------------------------------------------------------------------
    procedure Make_Withdraw (Withdraw : in out T_Withdraw);
 
+   overriding
+   procedure Display_Operation(Withdraw : T_Withdraw);
+
 end P_Operation.P_Withdraw;
