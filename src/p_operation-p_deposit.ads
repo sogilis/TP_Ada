@@ -4,12 +4,11 @@ package P_Operation.P_Deposit is
 
    -------------------------------------------------------------------------------------------------
    type T_Deposit is new T_Operation with record
-      Ptr_Account : T_Pointeur;
+      Ptr_Account : Pointer_Account;
    end record;
    -------------------------------------------------------------------------------------------------
-   procedure Make_Deposit (Deposit : in out T_Deposit);
+   overriding procedure Make(Pointer_Deposit : in out T_Operation_Class_Access);
 
-   overriding
-   procedure Display_Operation(Deposit: T_Deposit);
+   overriding procedure Display (Deposit: T_Deposit);
 
 end P_Operation.P_Deposit;

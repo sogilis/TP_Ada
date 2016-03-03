@@ -3,15 +3,15 @@ with Account; use Account;
 package P_Operation.P_Transfer is
 
    -------------------------------------------------------------------------------------------------
-   type T_Transfer is new T_Operation with record
-      Ptr_Transmitter : T_Pointeur;
-      Ptr_Payee       : T_Pointeur;
-   end record;
-
-   -------------------------------------------------------------------------------------------------
-   procedure Make_Transfer (Transfer : in out T_Transfer);
-
-
-   procedure Display_Transfer(Amount : T_Euro; Transmitter_ID : Positive; Payee_ID : Positive);
+ --  type T_Transfer is new T_Operation with record
+--        Ptr_Transmitter : Pointer_Account;
+--        Ptr_Payee       : Pointer_Account;
+--     end record;
+--
+--     -------------------------------------------------------------------------------------------------
+--     overriding procedure Make (Transfer : in out T_Transfer);
+--
+--
+--     overriding procedure Display (Transfer : T_Transfer);
 
 end P_Operation.P_Transfer;
