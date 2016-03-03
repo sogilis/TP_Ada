@@ -11,7 +11,7 @@ package Account is
    end record;
 
    -------------------------------------------------------------------------------------------------
-   type A_History is array (1 .. 10) of T_History;
+   type A_History is array (1 .. 10) of T_Operation_Class_Access;
 
    -------------------------------------------------------------------------------------------------
    type T_Account is tagged record
