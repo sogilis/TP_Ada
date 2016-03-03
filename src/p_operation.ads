@@ -8,6 +8,6 @@ package P_Operation is
       Amount : T_Euro;
    end record;
 
-   procedure Display_Operation(Operation : T_Operation);
+   procedure Display_Operation(Operation : T_Operation) is abstract;
 
 end P_Operation;
