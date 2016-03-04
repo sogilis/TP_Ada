@@ -9,7 +9,7 @@ package P_Operation is
    end record;
 
    -------------------------------------------------------------------------------------------------
-   type T_Operation_Class_Access is access all T_Operation'Class;
+   type T_Operation_Class_Access is access T_Operation'Class;
 
    -------------------------------------------------------------------------------------------------
    procedure Display (Operation : T_Operation) is abstract;

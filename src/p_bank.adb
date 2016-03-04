@@ -1,6 +1,7 @@
-package body P_bank is
+package body P_Bank is
 
-   procedure apply_deposit(Ptr_Account : Pointer_Account; Pointer_Operation : T_Operation_Class_Access) is
+   -------------------------------------------------------------------------------------------------
+   procedure Apply_Deposit(Ptr_Account : Pointer_Account; Pointer_Operation : T_Operation_Class_Access) is
    begin
 
         Ptr_Account.Date := Ptr_Account.Date + 1;
@@ -10,9 +11,10 @@ package body P_bank is
         Ptr_Account.History (Ptr_Account.Date) :=
           Pointer_Operation;
 
-   end apply_deposit;
+   end Apply_Deposit;
 
-    procedure apply_withdraw(Ptr_Account : Pointer_Account; Pointer_Operation : T_Operation_Class_Access) is
+   -------------------------------------------------------------------------------------------------
+    procedure Apply_Withdraw(Ptr_Account : Pointer_Account; Pointer_Operation : T_Operation_Class_Access) is
      begin
 
           Ptr_Account.Date := Ptr_Account.Date + 1;
@@ -22,24 +24,27 @@ package body P_bank is
           Ptr_Account.all.History (Ptr_Account.all.Date) :=
             Pointer_Operation;
 
-   end apply_withdraw;
+   end Apply_Withdraw;
 
-   procedure apply_transfer(Pointer_Operation : T_Operation_Class_Access) is
+   -------------------------------------------------------------------------------------------------
+   procedure Apply_Transfer(Transfer : in out T_Transfer) is
+      Pointer_Transfer : T_Operation_Class_Access;
    begin
-      Pointer_Operation.Ptr_Transmitter.Date := Pointer_Operation.Ptr_Transmitter.Date + 1;
 
---      Pointer_Operation.Ptr_Payee.Date := Pointer_Operation.Ptr_Payee.Date + 1;
+      Transfer.Ptr_Transmitter.Date := Transfer.Ptr_Transmitter.Date + 1;
 
-  --      Pointer_Operation.Ptr_Transmitter.Balance := Pointer_Operation.Ptr_Transmitter.Balance - Pointer_Operation.Amount;
+      Transfer.Ptr_Payee.Date := Transfer.Ptr_Payee.Date + 1;
 
-    --    Pointer_Operation.Ptr_Payee.Balance := Pointer_Operation.Ptr_Payee.Balance + Pointer_Operation.Amount;
+       Transfer.Ptr_Transmitter.Balance := Transfer.Ptr_Transmitter.Balance - Transfer.Amount;
 
-      --  Pointer_Operation.Ptr_Transmitter.History (Pointer_Operation.Ptr_Transmitter.Date) :=
-        --  Pointer_Operation;
+      Transfer.Ptr_Payee.Balance := Transfer.Ptr_Payee.Balance + Transfer.Amount;
 
-     --   Pointer_Operation.Ptr_Payee.History (Pointer_Operation.Ptr_Payee.Date) :=
-       --   Pointer_Operation;
-   end apply_transfer;
+      Pointer_Transfer := new T_Transfer'(Transfer);
+        Transfer.Ptr_Transmitter.History (Transfer.Ptr_Transmitter.Date) :=
+         Pointer_Transfer;
 
+      Transfer.Ptr_Payee.History (Transfer.Ptr_Payee.Date) :=
+         Pointer_Transfer;
+   end Apply_Transfer;
 
-end P_bank;
+end P_Bank;

@@ -1,8 +1,20 @@
-with Account; use Account;
-with p_operation; use P_Operation;
-package P_bank is
+with Account;                use Account;
+with P_Operation;            use P_Operation;
+with P_Operation.P_Transfer; use P_Operation.P_Transfer;
 
-   procedure apply_deposit(Ptr_Account : Pointer_Account; Pointer_Operation : T_Operation_Class_Access);
-   procedure apply_withdraw(Ptr_Account : Pointer_Account; Pointer_Operation : T_Operation_Class_Access);
-   procedure apply_transfer(Pointer_Operation : T_Operation_Class_Access);
-end P_bank;
+package P_Bank is
+
+   -------------------------------------------------------------------------------------------------
+   procedure Apply_Deposit
+     (Ptr_Account       : Pointer_Account;
+      Pointer_Operation : T_Operation_Class_Access);
+
+   -------------------------------------------------------------------------------------------------
+   procedure Apply_Withdraw
+     (Ptr_Account       : Pointer_Account;
+      Pointer_Operation : T_Operation_Class_Access);
+
+   -------------------------------------------------------------------------------------------------
+   procedure Apply_Transfer (Transfer : in out T_Transfer);
+
+end P_Bank;
