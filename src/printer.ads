@@ -11,6 +11,6 @@ package Printer is
    procedure Display_Creditor (Creditor : Boolean);
 
    -------------------------------------------------------------------------------------------------
-   procedure Display_History (Ptr_Account : Pointer_Account);
+  procedure Display_History (Ptr_Account : Pointer_Account);
 
 end Printer;

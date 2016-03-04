@@ -6,14 +6,12 @@ package P_Operation is
    -------------------------------------------------------------------------------------------------
    type T_Operation is abstract tagged record
       Amount : T_Euro;
-
    end record;
 
    -------------------------------------------------------------------------------------------------
    type T_Operation_Class_Access is access all T_Operation'Class;
 
-   procedure Make (Operation : in out T_Operation_Class_Access) is abstract;
-
+   -------------------------------------------------------------------------------------------------
    procedure Display (Operation : T_Operation) is abstract;
 
 end P_Operation;
